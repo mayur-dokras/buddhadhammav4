@@ -4,6 +4,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BuddhDhamma.in · The journey of the Buddha’s teaching</title>
 <meta name="description" content="The journey of the Buddha’s teaching across Asia, told from inscriptions, excavations and texts, in English, Hindi and Marathi.">
+<meta name="theme-color" content="#FAF7F0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231B1712'/%3E%3Cg fill='none' stroke='%23E0B866' stroke-width='3' stroke-linecap='round'%3E%3Ccircle cx='32' cy='32' r='19'/%3E%3Ccircle cx='32' cy='32' r='4.5'/%3E%3Cpath d='M32 13v14M32 37v14M13 32h14M37 32h14M18.6 18.6l9.9 9.9M35.5 35.5l9.9 9.9M45.4 18.6l-9.9 9.9M28.5 35.5l-9.9 9.9'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<link rel="canonical" href="https://mayur-dokras.github.io/buddhadhammav4/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BuddhDhamma.in">
+<meta property="og:title" content="BuddhDhamma.in · The journey of the Buddha’s teaching">
+<meta property="og:description" content="The journey of the Buddha’s teaching across Asia, told from inscriptions, excavations and texts, in English, Hindi and Marathi.">
+<meta property="og:url" content="https://mayur-dokras.github.io/buddhadhammav4/">
+<meta property="og:image" content="https://mayur-dokras.github.io/buddhadhammav4/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BuddhDhamma.in · The journey of the Buddha’s teaching">
+<meta name="twitter:description" content="The journey of the Buddha’s teaching across Asia, told from inscriptions, excavations and texts, in English, Hindi and Marathi.">
+<meta name="twitter:image" content="https://mayur-dokras.github.io/buddhadhammav4/img/og.jpg">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Brahmi&family=Noto+Sans+Devanagari:wght@400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap">
 <style>
 /* Layout: one connected prototype. Home is a long ivory gallery walk; every other screen is a full page swapped in by the router. Gold is the only accent. */
@@ -1021,11 +1037,101 @@ html:lang(hi) .roll,html:lang(mr) .roll{height:1.5em;line-height:1.5}
 .hsa[hidden]{display:none}
 @keyframes hsnudge{0%,100%{transform:translateY(-50%)}50%{transform:translate(4px,-50%)}}
 @media (prefers-reduced-motion:reduce){.hsa{animation:none}}
+/* ===== UX layer: search, glance, reveal, closing band, footer columns, phone tab bar ===== */
+.ux-prog{position:fixed;left:0;top:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--gold),var(--gold2));z-index:25;pointer-events:none}
+.ux-sbtn{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1px solid var(--rule);background:rgba(255,255,255,.8);color:var(--ink);cursor:pointer;flex:none;transition:border-color .2s}
+.ux-sbtn:hover{border-color:var(--gold)}
+.ux-sbtn svg,.ux-tab svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+/* search */
+.ux-search{border:0;padding:0;background:transparent;width:min(680px,94vw);max-width:none;margin:10vh auto auto;color:var(--ink)}
+.ux-search::backdrop{background:rgba(20,18,16,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.ux-sbox{background:var(--ground);border-radius:22px;box-shadow:0 30px 80px -20px rgba(20,18,16,.5);overflow:hidden;border:1px solid var(--rule)}
+.ux-sin{display:flex;align-items:center;gap:12px;padding:6px 16px 6px 20px;border-bottom:1px solid var(--rule)}
+.ux-sin svg{width:20px;height:20px;fill:none;stroke:var(--dim);stroke-width:1.8;stroke-linecap:round;flex:none}
+.ux-sin input{flex:1;min-width:0;border:0;background:none;font:400 18px var(--sans);color:var(--ink);padding:16px 0;outline:none}
+.ux-sin button{border:1px solid var(--rule);background:var(--surface);border-radius:8px;font:500 12px var(--mono);color:var(--dim);padding:6px 9px;cursor:pointer}
+.ux-sres{max-height:min(58vh,520px);overflow-y:auto;padding:8px;overscroll-behavior:contain}
+.ux-sres .ux-sh{font:500 11.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);padding:12px 12px 6px}
+.ux-sres a{display:flex;align-items:center;gap:14px;padding:11px 12px;border-radius:12px;text-decoration:none;color:inherit}
+.ux-sres a[aria-selected="true"],.ux-sres a:hover{background:var(--soft)}
+.ux-sres a .ux-st{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.ux-sres a b{font-weight:500;font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ux-sres a small{color:var(--quiet);font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ux-sres a i{font:500 11px var(--mono);font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:var(--lamp);background:rgba(194,138,44,.12);border-radius:999px;padding:4px 9px;flex:none}
+.ux-sres .ux-none{padding:28px 14px;color:var(--quiet);text-align:center}
+.ux-sfoot{display:flex;gap:16px;padding:10px 18px;border-top:1px solid var(--rule);font:12px var(--mono);color:var(--dim)}
+@media (max-width:700px){.ux-search{margin:0 auto;width:100vw;height:100dvh;max-height:none}.ux-sbox{border-radius:0;height:100%;display:flex;flex-direction:column;border:0}.ux-sres{max-height:none;flex:1}.ux-sfoot{display:none}.ux-sin{padding-top:calc(6px + env(safe-area-inset-top,0px))}}
+/* at a glance */
+.ux-glance{padding-block:clamp(28px,4vw,48px) 0}
+.ux-stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:1px solid var(--rule);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow);overflow:hidden}
+.ux-stats a{display:flex;flex-direction:column;gap:6px;padding:26px 24px;text-decoration:none;color:inherit;border-left:1px solid var(--rule);transition:background .25s}
+.ux-stats a:first-child{border-left:0}
+.ux-stats a:hover{background:var(--soft)}
+.ux-stats b{font:400 clamp(38px,4.4vw,60px)/1 var(--serif);color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.ux-stats a:hover b{color:var(--lamp)}
+.ux-stats span{font-size:14.5px;color:var(--quiet);line-height:1.35}
+.ux-stats em{font:500 11.5px var(--mono);font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--lamp);margin-top:auto;padding-top:8px}
+@media (max-width:900px){.ux-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.ux-stats a:nth-child(4){border-left:0}.ux-stats a:nth-child(n+4){border-top:1px solid var(--rule)}}
+@media (max-width:560px){.ux-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.ux-stats a{padding:18px 16px;border-left:0;border-top:1px solid var(--rule)}.ux-stats a:nth-child(-n+2){border-top:0}.ux-stats a:nth-child(even){border-left:1px solid var(--rule)}.ux-stats a:last-child{grid-column:1/-1;border-left:0}.ux-stats em{display:none}}
+/* reveal on scroll */
+.ux-rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.ux-rv.ux-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.ux-rv{opacity:1;transform:none;transition:none}}
+@media print{.ux-rv{opacity:1;transform:none}.ux-tabs,.ux-prog,.ux-up{display:none}}
+main#home:not([hidden])~footer.sitefoot{margin-top:0}
+.ux-sin input::-webkit-search-cancel-button{display:none}
+/* closing band */
+.ux-cta{background:#1B1712;color:#F6EFE3;padding-block:clamp(64px,9vw,120px);position:relative;overflow:hidden}
+.ux-cta::before{content:"";position:absolute;right:-12%;top:-40%;width:60%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(224,184,102,.22),transparent);pointer-events:none}
+.ux-cta .inner{position:relative;display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.ux-cta .label{color:#E0B866}
+.ux-cta h2{font-size:clamp(36px,5.2vw,76px);line-height:1.02;letter-spacing:-.02em;color:#F6EFE3;max-width:16ch}
+.ux-cta h2 em{color:#E0B866}
+.ux-cta p{margin:0;max-width:52ch;color:rgba(246,239,227,.74);font-size:17px;line-height:1.6}
+.ux-cta .ux-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.ux-cta .ux-b{display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 24px;border-radius:999px;font:500 15.5px var(--sans);cursor:pointer;text-decoration:none;border:1px solid rgba(246,239,227,.28);background:transparent;color:#F6EFE3;transition:background .25s,border-color .25s,color .25s}
+.ux-cta .ux-b:hover{border-color:#E0B866;color:#E0B866}
+.ux-cta .ux-b.gold{background:#E0B866;border-color:#E0B866;color:#1B1712}
+.ux-cta .ux-b.gold:hover{background:#F0CD86;color:#1B1712}
+.ux-cta .ux-b[hidden]{display:none}
+/* footer columns */
+.sitefoot .fgrid.ux-f4{grid-template-columns:minmax(0,1.5fr) minmax(0,.7fr) minmax(0,.7fr) minmax(0,1.2fr);gap:40px}
+.ux-fcol{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.ux-fcol a{color:var(--ink);text-decoration:none;font-size:15.5px;padding:2px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.ux-fcol a:hover{color:var(--lamp);border-color:var(--gold)}
+@media (max-width:900px){.sitefoot .fgrid.ux-f4{grid-template-columns:1fr 1fr;gap:32px 24px}.sitefoot .fgrid.ux-f4 .fbrand,.sitefoot .fgrid.ux-f4 .fcontact{grid-column:1/-1}}
+/* back to top */
+.ux-up{position:fixed;right:22px;bottom:22px;z-index:18;width:46px;height:46px;border-radius:50%;border:1px solid var(--rule);background:rgba(255,255,255,.94);color:var(--ink);display:grid;place-items:center;cursor:pointer;box-shadow:var(--shadow);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .3s,transform .3s,border-color .2s}
+.ux-up.on{opacity:1;transform:none;pointer-events:auto}.ux-up:hover{border-color:var(--gold)}
+.ux-up svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* phone tab bar */
+.ux-tabs{display:none}
+@media (max-width:700px){
+ .ux-sbtn,.ux-up{display:none}
+ .ux-tabs{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:18;background:rgba(250,247,240,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--rule);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));transition:transform .3s}
+ .ux-tabs.off{transform:translateY(110%)}
+ .ux-tab{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 2px;border:0;background:none;font:500 11px var(--sans);color:var(--quiet);text-decoration:none;cursor:pointer;border-radius:12px;min-height:48px;justify-content:center;-webkit-tap-highlight-color:transparent}
+ .ux-tab svg{width:21px;height:21px}
+ .ux-tab.on{color:var(--lamp)}
+ .ux-tab.on svg{stroke-width:2.2}
+ .sitefoot{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+ .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+}
+/* loading placeholders */
+.tdate .ux-nt{display:block}
+.ux-sk{border-radius:var(--r);background:linear-gradient(100deg,var(--soft) 30%,#fbf8f1 50%,var(--soft) 70%);background-size:300% 100%;animation:uxsk 1.4s linear infinite;min-height:320px;border:1px solid var(--rule)}
+@keyframes uxsk{to{background-position:-300% 0}}
+@media (prefers-reduced-motion:reduce){.ux-sk{animation:none}}
+/* keyboard focus */
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.labels>.card:last-child:nth-child(odd){grid-column:auto}
+@media (max-width:700px){.labels>.card:last-child:nth-child(odd){grid-column:1/-1}}
 </style>
 
 <header class="top wrap">
   <div class="topl"><button type="button" class="backbtn" id="backBtn" aria-label="Go back" hidden><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><a class="brand" href="#home">BuddhDhamma<em>.in</em></a></div>
   <div class="topr">
+  <button type="button" class="ux-sbtn" data-search aria-label="Search" title="Search ( / )"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button>
   <div class="acctwrap"><a class="acctbtn" id="acctBtn" href="#expert" title="Expert sign in" aria-label="Expert sign in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4.5 20.5c1-4 4-6 7.5-6s6.5 2 7.5 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="lbl">Sign in</span></a><div class="acctmenu" id="acctMenu" hidden></div></div><button type="button" class="joinbtn joinopen"><i></i>Join</button>
   <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button><button type="button" data-lang="hi" aria-pressed="false" lang="hi">हिंदी</button><button type="button" data-lang="mr" aria-pressed="false" lang="mr">मराठी</button></div>
   <button type="button" class="menubtn" id="menuBtn" aria-expanded="false" aria-controls="sidemenu"><span class="roll"><span>Menu</span><span aria-hidden="true">Menu</span></span><span class="mbi" aria-hidden="true"></span></button></div>
@@ -1068,6 +1174,16 @@ html:lang(hi) .roll,html:lang(mr) .roll{height:1.5em;line-height:1.5}
 </section>
 
 
+
+<section id="glance" class="ux-glance wrap" aria-label="The site at a glance">
+  <div class="inner"><div class="ux-stats">
+    <a href="#map"><b data-count="places" data-to="37">37</b><span>places on the map, from the Ganges to Japan</span><em>Open the map →</em></a>
+    <a href="#viharas"><b data-count="vih" data-to="18">18</b><span>great monasteries where Asia came to study</span><em>Mahāvihāras →</em></a>
+    <a href="#councils"><b data-count="councils" data-to="6">6</b><span>councils that fixed and carried the teaching</span><em>Dhamma Saṅgīti →</em></a>
+    <a href="#learn"><b data-count="scripts" data-to="8">8</b><span>scripts you can write your own name in</span><em>Try the converter →</em></a>
+    <a href="#archive"><b data-count="sources" data-to="53">53</b><span>primary sources with scans you can open</span><em>Enter the archive →</em></a>
+  </div></div>
+</section>
 
 <section id="doors" class="band wrap glow" aria-label="Choose your way in" style="padding-bottom:clamp(28px,4vw,48px)">
   <div class="inner">
@@ -1119,7 +1235,7 @@ html:lang(hi) .roll,html:lang(mr) .roll{height:1.5em;line-height:1.5}
       <a class="tile card wide tcourse" href="#courses">
         <span class="label">Courses · taught by specialists</span>
         <h3>Learn from those who <em>read the stones</em></h3>
-        <div class="tdate"><b>14</b><span><strong>Next course · 14 November</strong>Read your first Dhamma Lipi inscription</span></div>
+        <div class="tdate" id="uxNext"><b data-noi18n>→</b><span><strong>Courses open for enrolment</strong><span class="ux-nt">Scripts, inscriptions, archaeology and Pāli</span></span></div>
         <p>Courses by epigraphers, archaeologists and Pāli scholars, online and in person.</p>
         <span class="go">Browse courses →</span>
       </a>
@@ -1353,13 +1469,21 @@ html:lang(hi) .roll,html:lang(mr) .roll{height:1.5em;line-height:1.5}
     </div>
   </div>
 </section>
+<section class="ux-cta wrap" aria-label="Join">
+  <div class="inner">
+    <span class="label">Walk with us</span>
+    <h2>The teaching travelled by <em>word of mouth.</em></h2>
+    <p>So does this site. Join to hear when new places, courses and readings are published, or pass it on to someone who would enjoy the walk.</p>
+    <div class="ux-acts"><button type="button" class="ux-b gold joinopen">Join for updates</button><a class="ux-b" href="#courses">Browse courses</a><button type="button" class="ux-b" id="uxShare">Share this site</button></div>
+  </div>
+</section>
 </main>
 
 <!-- ================= MAP ================= -->
 <section class="screen wrap" id="s-map" hidden aria-label="Map">
   <div class="inner">
     <div class="crumbs"><a href="#home">Home</a><span class="sep">›</span><span>Map</span></div>
-    <div class="pagehead"><div><span class="label lit">Explore · 37 places · c. 400 BCE to 1600 CE</span><h1>The spread <em>map</em></h1></div><p class="side">Mountains, rivers, lakes and deserts shaped where the teaching could travel. Hover a light for a short introduction, tap or click it to open the place.</p></div>
+    <div class="pagehead"><div><span class="label lit">Explore · 38 places · c. 400 BCE to 1600 CE</span><h1>The spread <em>map</em></h1></div><p class="side">Mountains, rivers, lakes and deserts shaped where the teaching could travel. Hover a light for a short introduction, tap or click it to open the place.</p></div>
     <div id="mapSlot"></div>
   </div>
 </section>
@@ -1677,11 +1801,13 @@ html:lang(hi) .roll,html:lang(mr) .roll{height:1.5em;line-height:1.5}
 </section>
 
 <footer class="sitefoot">
-  <div class="wrap fgrid">
+  <div class="wrap fgrid ux-f4">
     <div class="fbrand">
       <span class="brand" style="font-size:22px">BuddhDhamma<em>.in</em></span>
       <p>The journey of the Buddha’s teaching across Asia, told from inscriptions, excavations and texts, with every piece of evidence labelled.</p>
     </div>
+    <nav class="ux-fcol" aria-label="Explore"><span class="label">Explore</span><a href="#map">Map</a><a href="#viharas">Mahāvihāras</a><a href="#councils">Dhamma Saṅgīti</a><a href="#question">Questions</a><a href="#streams">Streams</a></nav>
+    <nav class="ux-fcol" aria-label="Learn"><span class="label">Learn</span><a href="#learn">Scripts</a><a href="#courses">Courses</a><a href="#archive">Archive</a><a href="#mudras">Mudrās</a><a href="#inscription">Inscription</a></nav>
     <div class="fcontact">
       <span class="label">Contact</span>
       <a class="fmail" href="mailto:connect@buddhadhamma.in">connect@buddhadhamma.in</a>
@@ -1694,6 +1820,16 @@ html:lang(hi) .roll,html:lang(mr) .roll{height:1.5em;line-height:1.5}
     <span>Images marked reconstruction are artistic impressions based on published evidence.</span>
   </div></div>
 </footer>
+<div class="ux-prog" id="uxProg" aria-hidden="true"></div>
+<button type="button" class="ux-up" id="uxUp" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<nav class="ux-tabs" id="uxTabs" aria-label="Quick links"><a class="ux-tab" data-t="home" href="#home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"/></svg><span>Home</span></a><a class="ux-tab" data-t="map" href="#map"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l6 2 5-2v14l-5 2-6-2-5 2V6z"/><path d="M9 4v14M15 6v14"/></svg><span>Map</span></a><a class="ux-tab" data-t="learn" href="#learn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5C6.5 5 9.5 5 12 6.5c2.5-1.5 5.5-1.5 8 0V19c-2.5-1.5-5.5-1.5-8 0-2.5-1.5-5.5-1.5-8 0z"/><path d="M12 6.5V19"/></svg><span>Learn</span></a><a class="ux-tab" data-t="courses" href="#courses"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5-9 5z"/><path d="M7 11.5V16c1.5 1.300 3.200 2 5 2s3.5-.7 5-2v-4.5"/></svg><span>Courses</span></a><button type="button" class="ux-tab" data-search><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>Search</span></button></nav>
+<dialog class="ux-search" id="uxSearch" aria-label="Search">
+  <div class="ux-sbox">
+    <div class="ux-sin"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><input id="uxQ" type="search" autocomplete="off" spellcheck="false" placeholder="Search places, monasteries, councils, scripts" aria-label="Search the site" aria-controls="uxRes"><button type="button" id="uxClose">Close</button></div>
+    <div class="ux-sres" id="uxRes" role="listbox"></div>
+    <div class="ux-sfoot"><span>↑↓ move</span><span>Enter open</span><span>Esc close</span></div>
+  </div>
+</dialog>
 <div class="toast" id="toast" role="status"></div>
 <dialog class="feedvid" id="feedvid" aria-label="Video"><div class="fvbox" id="fvframe"></div><div class="fvbar"><a id="fvopen" href="#" target="_blank" rel="noopener">Open on YouTube</a><button type="button" id="fvclose">Close</button></div></dialog>
 <dialog class="joindlg" id="joinDlg" aria-labelledby="joinT">
@@ -2531,7 +2667,9 @@ $('#jclear').onclick=()=>{setTrail([]);renderJourney();toast(T('Trail cleared'))
 
  /* ---------- live courses data, same shape as the preview data layer ---------- */
  window.BD_LIVE_API=L=>{const S=L.SEED,SX=S.experts,SC=S.courses;const A=window.BD_AUTH;
-  const k=async()=>{await ready;await whenKnown();return K;};
+  /* if the database cannot be reached, fall back to the built-in courses instead of an empty page */
+  const OFF={F:new Proxy({},{get:()=>()=>{throw new Error('offline');}}),db:null};
+  const k=async()=>{const up=await ready.then(()=>true,()=>false);await whenKnown();return up&&K?K:OFF;};
   const need=()=>{const u=A.uid();if(!u)throw new Error('Please sign in again.');return u;};
   async function seats(cid){const {F,db}=await k();try{const s=await F.getCountFromServer(F.collection(db,'courses',cid,'seats'));return s.data().count;}catch(e){return 0;}}
   const exCache={};
@@ -2663,7 +2801,8 @@ window.BD_API=window.BD_API||(function(){const LOCAL=(function(){
   $('#cfLevel').value=F.level;$('#cfLang').value=F.lang;$('#cfFmt').value=F.fmt;$('#cfPrice').value=F.price;$('#cfSort').value=F.sort;}
  async function renderCourses(){
   if(!$('#ctopics').children.length)setupFilters();
-  const all=await API.listCourses();const q=F.q.trim().toLowerCase();
+  const G0=$('#cgrid');if(G0&&!G0.children.length)G0.innerHTML='<div class="ux-sk"></div>'.repeat(3);
+  let all=[];try{all=await API.listCourses();}catch(e){console.warn(e);}const q=F.q.trim().toLowerCase();
   let list=all.filter(c=>(!F.topic||c.topic===F.topic)&&(!F.level||c.level===F.level)&&(!F.lang||c.language===F.lang)&&(!F.fmt||c.format===F.fmt)&&(!F.price||(F.price==='free'?!(+c.fee>0):+c.fee>0))&&(!q||[c.title,c.summary,c.topic,c.description,c.expert&&c.expert.name].join(' ').toLowerCase().includes(q)));
   const by={soon:(a,b)=>(a.start||'9').localeCompare(b.start||'9'),new:(a,b)=>String(b.id).localeCompare(String(a.id)),low:(a,b)=>(+a.fee||0)-(+b.fee||0),high:(a,b)=>(+b.fee||0)-(+a.fee||0)};list.sort(by[F.sort]);
   $('#ccount').textContent=`${list.length} ${t(list.length===1?'course':'courses')}`;
@@ -3151,6 +3290,88 @@ window.BD_API=window.BD_API||(function(){const LOCAL=(function(){
  function set(l){LANG.cur=l;try{localStorage.setItem('bd-lang',l)}catch(e){}$$('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===l));apply();Object.values(RENDER).forEach(f=>{try{f()}catch(e){}});const h=location.hash.slice(1);if(h.startsWith('place-'))renderPlace(h.slice(6));if(h.startsWith('vihara-'))renderVihara(h.slice(7));if(h==='journey')renderJourney();if(window.mapRelabel)setTimeout(window.mapRelabel,60);}
  $$('.lang button').forEach(b=>b.addEventListener('click',()=>set(b.dataset.lang)));
  let l='en';try{l=localStorage.getItem('bd-lang')||'en'}catch(e){}if(l!=='en')set(l);window.setLang=set;})();
+</script>
+<script>
+/* =================== UX layer: search, glance counts, reveal, tab bar =================== */
+(function(){
+ const q=(s,r)=>(r||document).querySelector(s),qa=(s,r)=>[...(r||document).querySelectorAll(s)];
+ const t=x=>(typeof T==='function'?T(x):x);
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const norm=s=>String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+ const still=matchMedia('(prefers-reduced-motion · reduce)').matches;
+ const lang=()=>(typeof LANG!=='undefined'&&LANG.cur)||'en';
+
+ /* ---------- search ---------- */
+ const dlg=q('#uxSearch'),inp=q('#uxQ'),res=q('#uxRes');let idx=null,idxLang='',sel=0,shown=[];
+ const alt=s=>norm(String(s||'').replace(/[śṣŚṢ]/g,'sh').replace(/c(?!h)/g,'ch'));
+ function build(){const I=[],D=window.I18N||{};const tr=x=>[(D.hi||{})[x],(D.mr||{})[x]].filter(Boolean).join(' ');
+  const add=(k,title,sub,href,extra,w)=>{if(!title)return;const tt=t(title),ts=sub?t(sub):'';I.push({k,w:w||0,title:tt,sub:ts,href,n:norm(title+' '+tt)+' '+alt(title)+' '+norm(tr(title)),m:norm(sub||''),x:norm(ts+' '+(extra||'')+' '+tr(sub||''))});};
+  [['Map','Places and routes across Asia','#map'],['Questions','Follow a question, stop by stop','#question'],['Mahāvihāras','The eighteen great monasteries','#viharas'],['Dhamma Saṅgīti','The great councils','#councils'],['Learn','Write and read Dhamma Lipi and other scripts','#learn'],['Courses','Taught by specialists','#courses'],['Archive','Excavation reports, inscriptions and catalogues','#archive'],['Streams','Theravāda, Mahāyāna and Vajrayāna as rivers','#streams'],['Mudrās','The language of hands','#mudras'],['Inscription','Move the light across the stone','#inscription']].forEach(p=>add('Page',p[0],p[1],p[2],'',6));
+  (window.SITES||[]).forEach(s=>add('Place',s[0],s[1],'#place-'+slug(s[0]),'',9));
+  (typeof VIH!=='undefined'?VIH:[]).forEach(v=>add('Mahāvihāra',v.n,[v.loc,v.c].filter(Boolean).join(' · '),'#vihara-'+v.id,(v.en||'')+' '+(v.sub||[]).join(' ')+' '+(v.who||[]).join(' '),8));
+  (window.COUNCILS||[]).forEach(c=>add('Council',c.name,[c.place,c.yr].filter(Boolean).join(' · '),'#councils',c.tagline+' '+(c.patron||''),/^\d+$/.test(String(c.no))?5:3));
+  (typeof MUDRAS!=='undefined'?MUDRAS:[]).forEach(m=>add('Mudrā',m[1],m[3],'#mudras',m[2],4));
+  (typeof SOURCES!=='undefined'?SOURCES:[]).forEach(s=>add('Source',s.t,s.a,'#archive',(s.pl||[]).join(' '),0));
+  idx=I;idxLang=lang();
+  if(window.BD_API)BD_API.listCourses().then(L=>{if(idx!==I)return;L.forEach(c=>I.push({k:'Course',w:7,title:c.title,sub:c.expert?c.expert.name:'',href:'#course-'+c.id,n:norm(c.title),m:'',x:norm((c.summary||'')+' '+(c.topic||''))}));if(dlg.open)run();}).catch(()=>{});}
+ function score(it,words){let s=0;for(const w of words){const i=it.n.indexOf(w);if(i===0)s+=100;else if(i>0&&/[\s\-·(]/.test(it.n[i-1]))s+=60;else if(i>0)s+=30;else if(it.m.indexOf(w)===0)s+=90;else if(it.m.includes(w))s+=45;else if(it.x.includes(w))s+=10;else return 0;}return s+it.w;}
+ const START=[['Nālandā','#vihara-nalanda','Mahāvihāra'],['Sāñcī','#place-sanci','Place'],['Write your name in Dhamma Lipi','#learn','Page'],['The First Saṅgīti','#councils','Council'],['Courses','#courses','Page']];
+ function run(){const v=norm(inp.value).trim();
+  if(!v){shown=START.map(s=>({title:t(s[0]),sub:'',href:s[1],k:s[2]}));res.innerHTML=`<div class="ux-sh">${esc(t('Try'))}</div>`+rows();pick(0);return;}
+  const words=v.split(/\s+/);shown=idx.map(it=>[score(it,words),it]).filter(x=>x[0]>0).sort((a,b)=>b[0]-a[0]).slice(0,9).map(x=>x[1]);
+  res.innerHTML=shown.length?rows():`<div class="ux-none">${esc(t('Nothing found. Try a place, a monastery or a script.'))}</div>`;pick(0);}
+ const rows=()=>shown.map((it,i)=>`<a href="${esc(it.href)}" role="option" data-i="${i}" data-noi18n><span class="ux-st"><b>${esc(it.title)}</b>${it.sub?`<small>${esc(it.sub)}</small>`:''}</span><i>${esc(t(it.k))}</i></a>`).join('');
+ function pick(i){sel=Math.max(0,Math.min(shown.length-1,i));qa('a',res).forEach((a,j)=>{a.setAttribute('aria-selected',j===sel);if(j===sel)a.scrollIntoView({block:'nearest'});});}
+ function open(){if(dlg.open)return;if(!idx||idxLang!==lang())build();if(window.closeSideMenu)window.closeSideMenu();inp.value='';dlg.showModal();run();setTimeout(()=>inp.focus(),30);}
+ const close=()=>{if(dlg.open)dlg.close();};
+ window.openSearch=open;
+ if(dlg){inp.addEventListener('input',run);
+  inp.addEventListener('keydown',e=>{if(e.key==='ArrowDown'){e.preventDefault();pick(sel+1);}else if(e.key==='ArrowUp'){e.preventDefault();pick(sel-1);}else if(e.key==='Enter'){e.preventDefault();const a=qa('a',res)[sel];if(a){location.hash=a.getAttribute('href');close();}}});
+  res.addEventListener('click',e=>{if(e.target.closest('a'))close();});
+  dlg.addEventListener('click',e=>{if(e.target===dlg)close();});q('#uxClose').onclick=close;
+  dlg.addEventListener('close',()=>setTimeout(()=>{const a=document.activeElement;if(a&&a.matches&&a.matches('[data-search]'))a.blur();},0));
+  qa('[data-search]').forEach(b=>b.addEventListener('click',open));
+  addEventListener('keydown',e=>{const tg=e.target,typing=tg&&(/^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName)||tg.isContentEditable);
+   if((e.key==='k'||e.key==='K')&&(e.metaKey||e.ctrlKey)){e.preventDefault();open();}else if(e.key==='/'&&!typing&&!e.metaKey&&!e.ctrlKey&&!e.altKey&&!q('dialog[open]')){e.preventDefault();open();}});}
+
+ /* ---------- at a glance: numbers come from the site's own data ---------- */
+ function counts(){const n={places:(window.SITES||[]).length,vih:(typeof VIH!=='undefined'?VIH:[]).length,councils:(window.COUNCILS||[]).filter(c=>/^\d+$/.test(String(c.no))).length,scripts:(typeof SCRIPT!=='undefined'&&SCRIPT.KEYS?SCRIPT.KEYS.length:0),sources:(typeof SOURCES!=='undefined'?SOURCES:[]).length};
+  qa('[data-count]').forEach(b=>{const v=n[b.dataset.count];if(v)b.dataset.to=v;if(still||b.dataset.done)b.textContent=b.dataset.to;});}
+ function countUp(b){if(b.dataset.done)return;b.dataset.done=1;const to=+b.dataset.to||0;if(still||!to){b.textContent=to;return;}const t0=performance.now(),D=1100;(function f(now){const p=Math.min(1,(now-t0)/D),e=1-Math.pow(1-p,3);b.textContent=Math.round(to*e);if(p<1)requestAnimationFrame(f);})(t0);}
+
+ /* ---------- reveal on scroll, progress line, back to top ---------- */
+ const io=('IntersectionObserver' in window)?new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;io.unobserve(el);el.classList.add('ux-in');qa('[data-count]',el.matches('[data-count]')?el.parentNode:el).forEach(countUp);}),{rootMargin:'0px 0px -8% 0px',threshold:.08}):null;
+ function reveal(){const groups=[['#home section.band .head',0],['#home .bento > *',70],['#home .labels > *',60],['.ux-stats > a',70],['.ux-cta .inner > *',80]];
+  groups.forEach(([s,step])=>qa(s).forEach(el=>{if(el.classList.contains('ux-rv'))return;const sib=[...el.parentNode.children].indexOf(el);
+   if(!io||still){qa('[data-count]',el).forEach(countUp);return;}
+   if(el.getBoundingClientRect().top<innerHeight*.9){qa('[data-count]',el).forEach(countUp);return;}
+   el.classList.add('ux-rv');el.style.setProperty('--d',Math.min(sib,5)*step+'ms');io.observe(el);}));}
+ const prog=q('#uxProg'),up=q('#uxUp');let tick=false;
+ function onScroll(){if(tick)return;tick=true;requestAnimationFrame(()=>{tick=false;const h=document.documentElement,max=h.scrollHeight-innerHeight;if(prog)prog.style.transform=`scaleX(${max>0?Math.min(1,scrollY/max):0})`;if(up)up.classList.toggle('on',scrollY>1400);});}
+ addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);
+ if(up)up.onclick=()=>scrollTo({top:0,behavior:still?'auto':'smooth'});
+
+ /* ---------- phone tab bar ---------- */
+ const tabs=q('#uxTabs');
+ function mark(){if(!tabs)return;const h=(location.hash||'#home').slice(1);const key=!h||h==='home'||document.getElementById(h)&&q('#home')&&q('#home').contains(document.getElementById(h))?'home':/^(map|place-)/.test(h)?'map':h==='learn'?'learn':/^(courses|sessions|course-|teacher-|dashboard)/.test(h)?'courses':'';
+  qa('.ux-tab',tabs).forEach(a=>a.classList.toggle('on',a.dataset.t===key));onScroll();}
+ addEventListener('hashchange',mark);
+ if(tabs){document.addEventListener('focusin',e=>{if(/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName))tabs.classList.add('off');});document.addEventListener('focusout',()=>setTimeout(()=>{const a=document.activeElement;if(!a||!/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName))tabs.classList.remove('off');},80));}
+
+ /* ---------- share ---------- */
+ const sh=q('#uxShare');if(sh)sh.onclick=async()=>{const url=location.origin+location.pathname,d={title:'BuddhDhamma.in',text:t('The journey of the Buddha’s teaching across Asia, told from inscriptions, excavations and texts.'),url};
+  try{if(navigator.share){await navigator.share(d);return;}await navigator.clipboard.writeText(url);toast(t('Link copied'));}catch(e){if(e&&e.name==='AbortError')return;toast(url);}};
+
+ /* next course on the home tile: the earliest course that has not started yet */
+ function nextCourse(){const box=q('#uxNext');if(!box||!window.BD_API)return;BD_API.listCourses().then(L=>{const today=new Date().toISOString().slice(0,10);
+   const c=L.filter(x=>x.start&&x.start>=today).sort((a,b)=>a.start.localeCompare(b.start))[0];if(!c)return;const d=new Date(c.start+'T00:00:00');
+   const loc={en:'en-GB',hi:'hi-IN',mr:'mr-IN'}[lang()]||'en-GB';const when=d.toLocaleDateString(loc,{day:'numeric',month:'long'});
+   box.innerHTML=`<b data-noi18n>${d.getDate()}</b><span><strong data-noi18n>${esc(t('Next course'))} · ${esc(when)}</strong><span class="ux-nt" data-noi18n>${esc(c.title)}</span></span>`;
+   const tile=box.closest('a');if(tile)tile.setAttribute('href','#course-'+c.id);}).catch(()=>{});}
+ function init(){counts();reveal();mark();nextCourse();}
+ if(document.readyState==='complete')init();else addEventListener('load',init);
+ if(typeof RENDER!=='undefined')RENDER.ux=()=>{idx=null;nextCourse();};
+})();
 </script>
 <script src="i18n.js"></script>
 <script>/**
